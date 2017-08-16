@@ -1,8 +1,21 @@
+#include<iostream>
 #include "Queue.h"
 
 Queue::Queue(){
 	headNode=NULL;
 	length=0;
+}
+
+void Queue::DisplayItems(){
+	if(headNode==NULL){
+		std::cout<<"Empty queue\n";
+		return;
+	}
+	Node* tempNode=headNode;
+	while(tempNode!=NULL){
+		std::cout<<tempNode->value<<" ";
+		tempNode=tempNode->nextNode;
+	}
 }
 
 void Queue::Enqueue(int value){
@@ -21,7 +34,7 @@ void Queue::Enqueue(int value){
 			tempNode->nextNode=newNode;
 			return;
 		}
-		tempNode=tempNode->value;
+		tempNode=tempNode->nextNode;
 	}
 }
 

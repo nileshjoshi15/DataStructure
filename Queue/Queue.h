@@ -17,6 +17,7 @@ class Queue{
 		void Enqueue(int value);
 		int Dequeue();
 		int Peak();
+		void DisplayItems();
 
 
 };

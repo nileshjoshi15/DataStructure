@@ -4,7 +4,6 @@
 class HeapSort{
 
     private:
-        void Sort();
         void BuildHeap();
         void Heapify(int pos,int _size);
         int Parent(int i);
@@ -14,6 +13,7 @@ class HeapSort{
         int* arr;
 
     public:
+        int* Sort();
         HeapSort();
         HeapSort(int *arr,int _size);
         ~HeapSort();

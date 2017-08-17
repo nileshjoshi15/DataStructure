@@ -7,13 +7,12 @@ HeapSort::HeapSort(){
 }
 
 HeapSort::HeapSort(int* _arr,int _size):arr(_arr),size(_size){
-    Sort();
 }
 
 HeapSort::~HeapSort(){
 }
 
-void HeapSort::Sort(){
+int* HeapSort::Sort(){
     BuildHeap();
     int tempsize=size;
     for(int i=size-1;i>=1;i--){
@@ -25,7 +24,7 @@ void HeapSort::Sort(){
        Heapify(0,tempsize);
        
     }
-
+    return arr;
 }
 
 void HeapSort::Display(){

@@ -1,1 +1,1 @@
-Implementation based pseudo code provided  on the book "Introduction to Algorithm"
+Implementation based on pseudo code provided  on the book "Introduction to Algorithm"

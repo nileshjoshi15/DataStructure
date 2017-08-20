@@ -29,28 +29,6 @@ Node* InsertNode(Node* head,int value){
     }
     return NULL;
 }
-/*
-void  DeleteDupFromNode(Node* head){
-    if(head==NULL || head->nextNode==NULL){
-        cout<<"Empty or one item only"<<endl;
-        return;
-    }
-
-    Node* newHead=head;
-    while(newHead!=NULL){
-        int value=newHead->value;
-        
-        Node* tempHead=newHead->nextNode;
-        while(tempHead!=NULL){
-            if(tempHead->value==value){
-                cout<<"Duplicate : "<<tempHead->value<<endl;
-            }
-            tempHead=tempHead->nextNode;
-        }
-        newHead=newHead->nextNode;
-    }
-}
-*/
 
 Node* ReturnFirstOccrAddr(Node* head,int value){
     if(head==NULL){
@@ -77,7 +55,7 @@ bool IsConseqVal(Node* head){
         return true;
     }
     return IsConseqVal(head->nextNode);
-    
+
 }
 
 /*Utility function to return max occurance */
@@ -117,21 +95,57 @@ void DisplayNodesVal(Node* head){
     }
     cout<<endl;
 }
+Node* LocateAndMove(Node* head,int value){
+    if(head==NULL || head->nextNode==NULL ){
+        cout<<"test"<<endl;
+        return head;
+    }
+    Node* temp=head;
+    cout<<"Hed val : "<<temp->value<<endl;
+    if(head->value==value){
+        head=temp->nextNode;
+        temp->nextNode=NULL;
+        Node* travel=head;
+        while(travel!=NULL){
+            if(travel->nextNode==NULL){
+                travel->nextNode=temp;
+                break;
+            }
+            travel=travel->nextNode;
+        }
+        return head;
+    }
+    bool assign=false;
+    Node *prev,*current,*next;
+    while(temp!=NULL){
+        if(assign==false && (temp->nextNode)->value==value){
+            prev=temp;
+            current=temp->nextNode;
+            next=current->nextNode;
+            prev->nextNode=next;
+            current->nextNode=NULL;
+            assign=true;
+        }
+        if(temp->nextNode==NULL && assign==true){
+            temp->nextNode=current;
+            return head;
+        }
+        temp=temp->nextNode;
+    }
+    return head;
+}
+
+
 
 int main(){
     Node* head=NULL;
     head=InsertNode(head,1);
     head=InsertNode(head,2);
-    head=InsertNode(head,3);
-    head=InsertNode(head,3);
-    head=InsertNode(head,3);
     head=InsertNode(head,4);
-    head=InsertNode(head,4);
+    head=InsertNode(head,3);
     DisplayNodesVal(head);
-    cout<<"Has Conse val : "<<IsConseqVal(head)<<endl;
-    cout<<"Max Cons count : "<<MaxConsCount(head)<<endl;
-    Node* nodeoc=ReturnFirstOccrAddr(head,3);
-    cout<<nodeoc<<" address "<<endl;
+    head=LocateAndMove(head,3);
+    DisplayNodesVal(head);
     return 0;
 }
 

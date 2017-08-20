@@ -18,7 +18,7 @@ int main(){
 //	list.DisplayList();
 	cout<<"testing length : "<<list.Length()<<endl;
 	cout<<"Deleting item from end"<<endl;
-//	list.DeleteNodeFromEnd();
+	list.DeleteNodeFromEnd();
 	list.DeleteNodeAtNpos(6);
 	list.DisplayList();
 

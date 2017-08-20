@@ -22,11 +22,11 @@ int ShiftCountOnSorted(int* arr,int size){
         if(arr[mid]<arr[prev] && arr[mid]<arr[next]){
             return mid;
         }
-        else if(arr[mid]>=arr[end]){
-            start=mid+1;
+        else if(arr[mid]<=arr[end]){
+            end=mid-1;
         }
         else if(arr[mid]>=arr[start]){
-            end=mid-1;                
+            start=mid+1;                
         }
     }
 }

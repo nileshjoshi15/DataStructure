@@ -29,6 +29,44 @@ Node* InsertNode(Node* head,int value){
     }
     return NULL;
 }
+/*
+void  DeleteDupFromNode(Node* head){
+    if(head==NULL || head->nextNode==NULL){
+        cout<<"Empty or one item only"<<endl;
+        return;
+    }
+
+    Node* newHead=head;
+    while(newHead!=NULL){
+        int value=newHead->value;
+        
+        Node* tempHead=newHead->nextNode;
+        while(tempHead!=NULL){
+            if(tempHead->value==value){
+                cout<<"Duplicate : "<<tempHead->value<<endl;
+            }
+            tempHead=tempHead->nextNode;
+        }
+        newHead=newHead->nextNode;
+    }
+}
+*/
+
+Node* ReturnFirstOccrAddr(Node* head,int value){
+    if(head==NULL){
+        cout<<"Empty list"<<endl;
+        return NULL;
+    }
+    while(head!=NULL){
+        if(head->value==value){
+            return head;
+        }
+        head=head->nextNode;
+    }
+    return NULL;
+
+
+}
 
 /*Utility function to check has consecutive values*/
 bool IsConseqVal(Node* head){
@@ -92,6 +130,8 @@ int main(){
     DisplayNodesVal(head);
     cout<<"Has Conse val : "<<IsConseqVal(head)<<endl;
     cout<<"Max Cons count : "<<MaxConsCount(head)<<endl;
+    Node* nodeoc=ReturnFirstOccrAddr(head,3);
+    cout<<nodeoc<<" address "<<endl;
     return 0;
 }
 

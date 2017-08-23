@@ -8,9 +8,10 @@ int main(){
 	tree.InsertNode(10);
 	tree.InsertNode(20);
 	tree.InsertNode(9);
-
+	tree.InsertNode(8);
 	cout<<"Testing"<<endl;
 	cout<<"Search result : "<<tree.SearchNode(20)<<endl;
 	cout<<"min  result : "<<tree.FindMin()<<endl;
 	cout<<"max result : "<<tree.FindMax()<<endl;
+    cout<<"Height :"<<tree.FindHeight()<<endl;
 }

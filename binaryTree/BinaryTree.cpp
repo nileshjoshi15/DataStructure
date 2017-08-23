@@ -25,6 +25,22 @@ int BinaryTree::FindMin(){
 	}
 
 }
+int BinaryTree::Height(Node* node){
+    if(node==NULL){
+        return -1;
+    }
+    int left=Height(node->leftNode);
+    int right=Height(node->rightNode);
+
+    return (left>right?left:right)+1;
+}
+
+
+
+int BinaryTree::FindHeight(){
+    return Height(rootNode);
+}
+
 
 int BinaryTree::FindMax(){
 	if(rootNode==NULL){

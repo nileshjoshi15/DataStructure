@@ -12,6 +12,27 @@ Node* CreateNode(int value){
     newNode->nextNode=NULL;
     return newNode;
 }
+
+Node* lastToFirst(Node* head){
+    if(head==NULL || head->nextNode==NULL){
+        return  head;
+    }
+    Node* temp=head;
+    while(temp!=NULL){
+        if((temp->nextNode)->nextNode==NULL){
+            Node* lastNode=temp->nextNode;
+            temp->nextNode=NULL;
+            lastNode->nextNode=head;
+            head=lastNode;
+            
+            return head;
+        }
+        temp=temp->nextNode;
+    }
+}
+
+
+
 /*Insert node to end*/
 Node* InsertNode(Node* head,int value){
     Node* newNode=CreateNode(value);
@@ -144,7 +165,7 @@ int main(){
     head=InsertNode(head,4);
     head=InsertNode(head,3);
     DisplayNodesVal(head);
-    head=LocateAndMove(head,3);
+    head=lastToFirst(head);
     DisplayNodesVal(head);
     return 0;
 }

@@ -23,12 +23,25 @@ int RemoveDup(int* arr,int size){
 }
 
 
+int RemoveDupEff(int* arr,int size){
+    bool* lookup=new bool[128];
+    for(int i=0;i<size;i++){
+        cout<<int(arr[i])<<endl;
+    }
+    return 0;
+}
+
+
+
+
 int main(){
     int arr[6]={5,2,3,4,5,5};
+    /*
     int newsize= RemoveDup(arr,5);
     for(int i=0;i<newsize;i++){
         cout<<arr[i]<<" ";
     }
-    cout<<endl;
+    cout<<endl;*/
+    RemoveDupEff(arr,6);
     return 0;
 }

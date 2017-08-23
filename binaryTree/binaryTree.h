@@ -11,6 +11,7 @@ class BinaryTree{
 		};
 		Node* rootNode;
 		Node* CreateNode(int value);
+        int  Height(Node* node);
 	public:
 		BinaryTree();
 		~BinaryTree();
@@ -18,8 +19,6 @@ class BinaryTree{
 		bool SearchNode(int value);
 		int FindMin();
 		int FindMax();
-	
-	
-
+        int FindHeight();
 };
 #endif
